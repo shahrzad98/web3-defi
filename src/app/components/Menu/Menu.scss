@@ -1,0 +1,108 @@
+.comp-menu-main-div-pools .comp-menu-button-title {
+  font-size: 15px;
+  padding-left: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+a:hover:before {
+  transition: display 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.comp-menu-main-div-pools-button {
+  font-weight: bold;
+  color: white;
+  padding-left: 20px;
+  display: flex;
+}
+
+.comp-menu-button-main-item {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.comp-menu-main-pools-items {
+  visibility: visible;
+  opacity: 1;
+  height: 100%;
+  // visibility: hidden;
+  // opacity: 0;
+  // height: 0;
+  //padding-left: 30px;
+}
+.comp-menu-main-pools-items-show {
+  visibility: visible;
+  opacity: 1;
+  height: 100%;
+  transform: translateY(0);
+  //padding-left: 30px;
+}
+.arrow {
+  transform: rotate(180deg);
+  transition: transform 0.1s linear;
+  // transform: rotate(0deg);
+  // transition: transform 0.1s linear;
+}
+
+.arrow-rotate {
+  transform: rotate(180deg);
+  transition: transform 0.1s linear;
+}
+.arrow-mobile {
+  transform: rotate(180deg);
+  transition: transform 0.1s linear;
+  // transform: rotate(0deg);
+  // transition: transform 0.1s linear;
+}
+
+.arrow-mobile-rotate {
+  transform: rotate(180deg);
+  transition: transform 0.1s linear;
+}
+.comp-menu-main-pools-items-mobile-show {
+  visibility: visible;
+  opacity: 1;
+  height: 100%;
+  transform: translateY(0);
+  //padding-left: 30px;
+}
+.comp-menu-main-pools-items-mobile {
+  visibility: visible;
+  opacity: 1;
+  height: 100%;
+  transform: translateY(0);
+  //padding-left: 30px;
+}
+.comp-menu-main-div-pools:hover .comp-menu-main-pools-items {
+  visibility: visible;
+  opacity: 1;
+  height: 100%;
+  transform: translateY(0);
+  //padding-left: 30px;
+}
+.comp-menu-main-div-pools:hover .arrow {
+  transform: rotate(180deg);
+  transition: transform 0.1s linear;
+}
+
+@media screen and (max-width: "1100px") {
+  .comp-menu-main-pools-items-mobile,
+  .comp-menu-main-pools-items-mobile-show,
+  .comp-menu-main-pools-items {
+    padding-left: 0;
+  }
+  .comp-menu-main-div-pools-button {
+    display: block;
+    padding-left: 0;
+  }
+  .comp-menu-main-div-pools {
+    .arrow,
+    .arrow-mobile,
+    .arrow-mobile-rotate {
+      div {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}

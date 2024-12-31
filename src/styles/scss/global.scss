@@ -1,0 +1,143 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: Lato, serif;
+}
+
+#root {
+  min-height: 100%;
+  min-width: 100%;
+}
+
+p,
+label {
+  line-height: 1.5em;
+  margin: 0;
+}
+
+input,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+h1,
+h2 {
+  font-family: "Lato";
+}
+.calculator-input-number {
+  width: 100px;
+  height: 20px;
+  margin: 0 5px;
+  font-size: 15px;
+}
+
+.calculator-select-place {
+  height: 20px;
+  margin: 0 5px;
+  font-size: 15px;
+}
+
+.chart {
+  cursor: url("../../public/assets/images/chart-cursor.svg"), pointer;
+}
+
+.MuiCircularProgress-colorPrimary {
+  color: #739ba2 !important;
+}
+
+.MuiCircularProgress-root {
+  left: 43%;
+  position: absolute;
+  top: 44vh;
+}
+.notification {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 200;
+}
+.transactions {
+  @media (min-width: 992px) {
+    display: flex;
+    justify-content: center;
+    top: 0;
+    right: 190px;
+    position: absolute;
+    height: inherit;
+    max-height: 60px;
+    z-index: 200;
+  }
+
+  @media (max-width: 992px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 200;
+  }
+}
+.warn-notification {
+  @media (min-width: 992px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    z-index: 200;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @media (max-width: 992px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 200;
+  }
+}
+
+html {
+  // font-family: "Samim", sans-serif;
+  scroll-behavior: smooth;
+
+  //alert color
+  --alert-success-bg-color: #a7ffd9;
+  --alert-success-color: #1d9360;
+  --alert-success-border-color: #a7ffd9;
+  --alert-success-icon-color: #1d9360;
+
+  --alert-error-bg-color: #f9c9c9;
+  --alert-error-color: #b71c1c;
+  --alert-error-border-color: #ffb5b5;
+  --alert-error-icon-color: #b71c1c;
+
+  --alert-warning-bg-color: #ffd5c8;
+  --alert-warning-color: #ff5722;
+  --alert-warning-border-color: #ffc0ac;
+  --alert-warning-icon-color: #ff5722;
+
+  --alert-info-bg-color: #d1e8ff;
+  --alert-info-color: #1d8cf8;
+  --alert-info-border-color: #b0d7fe;
+  --alert-info-icon-color: #1d8cf8;
+}
+
+.Mui-disabled {
+  cursor: not-allowed !important;
+}

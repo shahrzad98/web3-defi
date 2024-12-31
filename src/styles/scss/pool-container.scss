@@ -1,0 +1,1571 @@
+@import "./variables.scss";
+@import "./blocks.scss";
+
+.pc-main-div {
+    @extend .center;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    padding: 5px;
+
+    .mobile-sidebar {
+        margin-top: -50px;
+
+        button {
+            height: 36px;
+            background-color: transparent;
+            border: none;
+        }
+    }
+}
+
+.terms-and-conditions {
+    position: relative;
+    width: 100%;
+    height: auto;
+
+    @media screen and (max-width: $medium) {
+        .tac-dialog {
+            width: 380px !important;
+            top: 20px !important;
+            left: calc(50% - 190px) !important;
+        }
+    }
+
+    .tac-backdrop {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: $secondary, $alpha: 0.9);
+        left: 0;
+        top: 0;
+        z-index: 100;
+    }
+
+    .tac-dialog {
+        position: absolute;
+        margin: 0;
+        left: calc(50% - 300px);
+        top: 10px;
+        width: 600px;
+        height: auto;
+        z-index: 1000;
+        border: solid 1px $primary;
+        border-radius: $defaultRadius;
+        background-color: $secondary;
+        color: white;
+
+        .MuiCheckbox-colorSecondary.Mui-checked {
+            color: $accent;
+        }
+
+        a {
+            color: $accent;
+            border-bottom: dashed 1px $accent;
+            cursor: pointer;
+        }
+
+        >p {
+            color: grey;
+        }
+
+        .tac-actions {
+            text-align: right;
+            margin-top: 10px;
+
+            button {
+                background-color: $accent;
+                color: white;
+                font-size: 16px;
+                line-height: 16px;
+                padding: 10px 20px;
+                border-radius: $defaultRadius;
+                border: none;
+                cursor: pointer;
+
+                &:disabled {
+                    background-color: gray;
+                }
+            }
+        }
+
+        .tac-items {
+            background-color: #f7f7f7;
+            color: $secondary;
+            border-radius: $defaultRadius;
+            padding: 5px 10px;
+            height: 300px;
+            overflow-y: auto;
+            margin-top: 10px;
+            position: relative;
+
+            div.tac-items-loader {
+                position: absolute;
+                top: -50% !important;
+                left: calc(50% - 30px) !important;
+            }
+
+            >div.tac-items-content {
+                >html {
+                    >body {
+                        padding: 72pt 20px !important;
+                    }
+                }
+            }
+
+            h2 {
+                margin-top: 0;
+                text-align: center;
+            }
+
+            p {
+                text-align: justify;
+                white-space: pre-wrap;
+            }
+        }
+    }
+}
+
+.pc-top {
+    @extend .row;
+    max-width: 820px;
+    justify-content: space-between;
+    padding: 20px;
+    width: 100%;
+    min-width: 720px;
+
+    @media screen and (max-width: $medium) {
+        min-width: auto;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @media screen and (max-width: 450px) {
+        margin-top: -60px;
+    }
+}
+
+.pc-time-wrapper {
+    @media screen and (max-width: $small) {
+        // display: none;
+    }
+}
+
+.pc-bottom-content {
+    @extend .row;
+    padding: 20px;
+    width: 100%;
+    background-color: $primary;
+    box-shadow: 0 0 2px 1px $secondary;
+    border-radius: $defaultRadius $defaultRadius 0 0;
+
+    @media screen and (max-width: $medium) {
+        flex-direction: column;
+        height: 100%;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    @media screen and (max-width: $small) {
+        width: 100%;
+        flex-direction: column-reverse;
+    }
+}
+
+.pc-bottom {
+    @extend .column;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 820px;
+    align-items: center;
+
+    @media screen and (max-width: $medium) {
+        align-items: center;
+        padding: 0;
+    }
+
+    @media screen and (max-width: $medium) {
+        width: 100%;
+    }
+}
+
+.pc-button-wrapper {
+    max-width: 375px;
+    width: 100%;
+    height: 55px;
+    margin-top: 20px;
+
+    .cta-button {
+        box-shadow: 0 0 2px 2px $secondary;
+        border-radius: $defaultRadius;
+    }
+
+    @media screen and (max-width: $medium) {
+        display: none;
+    }
+}
+
+// pool container calculator styles
+.pc-calculator-main-div {
+    height: 100%;
+    width: 50%;
+    margin: 0 30px 0 0;
+    color: white;
+    font-weight: 300;
+
+    @media screen and (max-width: $medium) {
+        width: 100%;
+        margin: 0 0 30px 0;
+    }
+
+    div.next {
+        font-size: 20px;
+        text-align: left;
+        padding: 5px 0;
+        line-height: 23px;
+        margin-bottom: 20px;
+    }
+}
+
+.pc-calculator-top {
+    padding-bottom: 10px;
+
+    @media screen and (max-width: $small) {
+        background-color: black;
+        padding: 15px;
+    }
+}
+
+.pc-calculator-icon-wrapper {
+    @extend .center;
+    width: 100%;
+    height: 50px;
+}
+
+.pc-calculator-row-calc {
+    @extend .row;
+    align-items: center;
+    height: 25px;
+    font-size: 19px;
+
+    @media screen and (max-width: $small) {
+        font-size: 11px;
+        padding: 0 0 0 30px;
+
+        input {
+            width: 50px;
+        }
+
+        select,
+        input {
+            height: 15px;
+            font-size: 10px;
+        }
+    }
+}
+
+.pc-calculator-space-between {
+    width: 100%;
+    height: 20px;
+
+    @media screen and (min-width: $small) {
+        display: none;
+    }
+}
+
+.pc-calculator-row-small {
+    @extend .row;
+    align-items: center;
+    height: 24px;
+    margin-top: 5px;
+    font-size: 16px;
+
+    @media screen and (max-width: $small) {
+        padding: 0 0 0 30px;
+    }
+}
+
+.pc-calculator-switch-wrapper {
+    margin-left: 30px;
+}
+
+.pc-calculator-slider-wrapper {
+    @extend .center;
+    margin-left: 50px;
+    width: 60px;
+    height: 20px;
+    padding-top: 12px;
+}
+
+.pc-calculator-currency-block {
+    @extend .row;
+    justify-content: space-around;
+    padding: 0 10px;
+
+    p {
+        font-weight: 300;
+    }
+}
+
+.pc-calculator-amount-currency {
+    @extend .column;
+    font-family: Lato;
+    margin: 0;
+    justify-content: space-around;
+    align-items: center;
+
+    .MuiCircularProgress-root {
+        position: initial;
+    }
+
+    h5,
+    h3,
+    h4,
+    h6,
+    h2 {
+        margin: 0;
+    }
+
+    h3 {
+        font-weight: bold;
+        font-size: 25px;
+    }
+
+    h2 {
+        font-weight: bold;
+        font-size: 40px;
+    }
+
+    h5,
+    h4 {
+        font-weight: 300;
+    }
+
+    h6 {
+        font-size: 10px;
+        opacity: 0.6;
+    }
+
+    @media screen and (max-width: $small) {
+        h3 {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        h4 {
+            margin-top: 10px;
+            font-size: 12px;
+        }
+
+        h6,
+        h5 {
+            font-size: 8px;
+        }
+
+        h5 {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.pc-calculator-icon-mobile {
+    @media screen and (max-width: $small) {
+        margin: 0;
+    }
+}
+
+.pc-calculator-button-wrapper {
+    height: 40px;
+    font-size: 15px;
+
+    @media screen and (min-width: $small) {
+        display: none;
+    }
+}
+
+.pc-calculator-bottom {
+    opacity: 1;
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+    background-color: $secondary;
+    border-radius: $defaultRadius;
+
+    p {
+        font-size: 21px;
+        margin: 0;
+        line-height: 60px;
+        font-weight: 700;
+    }
+
+    span {
+        font-size: 19px;
+        margin-bottom: 10px;
+    }
+
+    @media screen and (max-width: 450px) {
+        span {
+            // display: none;
+        }
+
+        p {
+            font-size: 15px;
+        }
+    }
+}
+
+// pool container pool info styles
+
+.pc-pool-info-title {
+    @extend .row;
+    width: 100%;
+    height: 70px;
+    font-size: 18px;
+    align-items: center;
+    padding: 0 30px;
+    justify-content: space-between;
+
+    p {
+        font-size: 20px;
+    }
+
+    .icon-mobile {
+        background-size: cover !important;
+        background-color: $accent !important;
+    }
+
+    @media screen and (max-width: $small) {
+        height: auto;
+        display: none;
+    }
+}
+
+.pc-pool-info-timer-container {
+    margin-bottom: 30px;
+
+    @media screen and (min-width: $small) {
+        display: none;
+    }
+}
+
+.pc-pool-info-scale-container {
+    width: 100%;
+    padding: 0 30px;
+    text-align: center;
+
+    p {
+        font-size: 15px;
+    }
+
+    @media screen and (max-width: $small) {
+        p {
+            font-size: 10px;
+        }
+
+        margin-bottom: 20px;
+    }
+
+    .MuiCircularProgress-root {
+        position: initial;
+    }
+}
+
+.pc-pool-info-button-wrapper {
+    width: 100%;
+    height: 50px;
+    align-self: end;
+
+    .cta-button {
+        border-radius: 0 0 $defaultRadius $defaultRadius;
+    }
+}
+
+.pc-pool-info-main-div {
+    @extend .column;
+    height: 210px;
+    min-width: 375px;
+    max-width: 420px;
+    margin-left: 30px;
+    color: white;
+    justify-content: space-between;
+    background-color: $secondary;
+    border-radius: $defaultRadius;
+
+    @media screen and (max-width: $medium) {
+        min-width: 80%;
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    @media screen and (max-width: $small) {
+        width: 100%;
+        height: auto;
+        margin-left: 0;
+    }
+}
+
+// predict model styles
+
+.pc-predict-model-modal-header {
+    height: 45px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+
+    @media screen and (max-width: $small) {
+        background-color: #ebf3f5;
+        padding: 0 15px 0 0;
+    }
+}
+
+.pc-predict-model-totem-wrapper {
+    @extend .center;
+    height: 45px;
+    background-color: $secondary;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    font-weight: 300;
+    border-radius: 5px 5px 0 0;
+
+    .icon-mobile {
+        margin-left: -15px;
+    }
+
+    // width: 45px;
+    // @media screen and (max-width: 450px) {
+    //   // background-color: ${(props) => props.background};
+    // }
+    input {
+        text-align: center;
+        border: none;
+        border-bottom: solid 2px #c4dbe0;
+
+        :focus {
+            outline: none;
+        }
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+}
+
+.process-predict-dialog {
+    margin-top: 20%;
+    position: relative;
+
+    h2,
+    h4 {
+        text-align: center;
+    }
+
+    h4.special-text {
+        color: $accent;
+    }
+
+    .process-predict-progress {
+        width: 100px;
+        left: calc(50% - 50px);
+        top: 100px;
+        position: absolute;
+        text-align: center;
+
+        .MuiCircularProgress-root {
+            position: initial;
+        }
+    }
+}
+
+.mature-info-prediction-modal {
+    width: 100%;
+    text-align: center;
+}
+
+.pc-predict-model-top {
+    @extend .row;
+    width: 100%;
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (max-width: $medium) {
+        padding: 0 0 0 20px;
+    }
+
+    @media screen and (max-width: $small) {
+        flex-direction: column;
+        background-color: #ebf3f5;
+        align-items: center;
+        padding: 0;
+    }
+}
+
+.pc-predict-model-block {
+    @extend .column;
+    width: 50%;
+    font-family: Lato;
+
+    h2 {
+        font-size: 35px;
+        margin: 10px 0;
+        font-weight: 300;
+    }
+
+    h4 {
+        font-size: 14px;
+        font-weight: 300;
+    }
+
+    h3 {
+        font-weight: 700;
+        font-size: 20px;
+    }
+
+    @media screen and (max-width: 513px) {
+        width: 100%;
+        align-items: center;
+
+        h2 {
+            font-size: 20px;
+        }
+
+        h4,
+        p {
+            font-size: 8px;
+            font-weight: bold;
+        }
+    }
+}
+
+.pc-predict-model-block--flex-start {
+    align-items: "flex-start";
+}
+
+.pc-predict-model-block--center {
+    align-items: "center";
+}
+
+.boxAlignRight {
+    margin-top: 85px;
+    line-height: 200%;
+    position: absolute;
+    right: 5%;
+    top: 200px;
+
+    @media screen and (max-width: 513px) {
+        right: 7%;
+    }
+
+    @media screen and (min-width: $large) {
+        right: 15%;
+    }
+}
+
+.boxAlignLeft {
+    margin-top: 85px;
+    line-height: 200%;
+    position: absolute;
+    left: 3%;
+    top: 180px;
+
+    @media screen and (max-width: 513px) {
+        left: 14%;
+    }
+
+    @media screen and (max-width: 443px) {
+        left: 5%;
+    }
+
+    @media screen and (min-width: $large) {
+        left: 15%;
+    }
+}
+
+.time {
+    position: absolute;
+    top: 80%;
+    left: 10%;
+}
+
+.phrase {
+    position: absolute;
+    top: 150%;
+    left: 6%;
+}
+
+.matureBox {
+    position: absolute;
+    width: 60%;
+    left: 35%;
+}
+
+.pc-predict-model-prediction-range {
+    @extend .column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    margin: auto;
+
+    h4 {
+        margin: 20px 0 10px 0;
+    }
+
+    p,
+    h2,
+    small {
+        border: solid 2px #c4dbe0;
+        text-align: center;
+        margin: 0;
+    }
+
+    p,
+    h2 {
+        width: 50%;
+        font-size: 20px;
+    }
+
+    h2 {
+        height: 60px;
+        font-weight: 700;
+        line-height: 50px;
+    }
+
+    small {
+        width: 220px;
+        border-top: 0;
+        height: 30px;
+        font-size: 10px;
+        line-height: 24px;
+    }
+
+    p {
+        border-bottom: 0;
+        height: 25px;
+        line-height: 20px;
+    }
+
+    h2:first-child {
+        border-right: 0;
+    }
+
+    p:first-child {
+        border-right: 0;
+    }
+}
+
+.pc-predict-model-desktop-prediction {
+    @media screen and (max-width: $small) {}
+}
+
+.pc-predict-model-mobile-prediction {
+    display: none;
+    @extend .column;
+    width: 130px;
+    color: white;
+
+    h2,
+    p {
+        width: 100%;
+        font-weight: 300;
+        border: none;
+    }
+
+    h2 {
+        font-size: 30px;
+        height: 50px;
+    }
+
+    p {
+        font-size: 11px;
+    }
+
+    @media screen and (min-width: $small) {
+        display: none;
+    }
+}
+
+.pc-predict-model-confirm-predict {
+    width: max-content;
+
+    div {
+        text-align: center;
+        color: white;
+    }
+
+    h5 {
+        font-weight: bold;
+        font-size: 10px;
+    }
+
+    h4 {
+        margin: 40px 0 10px 0;
+    }
+
+    h2 {
+        border: solid 2px #c4dbe0;
+        text-align: center;
+        margin: 0;
+    }
+
+    @media screen and (max-width: 450px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100% !important;
+        margin-bottom: 18px;
+
+        h2 {
+            width: 130px;
+            font-size: 30px;
+            font-weight: 100;
+            color: white;
+            border: none;
+        }
+    }
+}
+
+.pc-predict-model-stake-button {
+    @extend .center;
+    cursor: pointer;
+    margin-top: 15px;
+    height: 45px;
+    border: 1px solid transparent;
+    border-radius: $defaultRadius;
+    background-color: $secondary;
+
+    p {
+        margin: 0;
+        font-weight: bold;
+    }
+
+    @media screen and (max-width: $small) {
+        width: 100%;
+
+        p {
+            margin: 0;
+            font-size: 15px;
+        }
+    }
+}
+
+.pc-predict-model-percent-block {
+    @extend .row;
+    width: 100%;
+
+    @media screen and (max-width: $small) {
+        width: 130px;
+    }
+}
+
+.pc-predict-model-percent-value {
+    @extend .center;
+    height: 45px;
+    width: 25%;
+    cursor: pointer;
+
+    @media screen and (max-width: $small) {
+        height: 32px;
+    }
+}
+
+.pc-predict-model-bottom {
+    @extend .pc-predict-model-top;
+    width: 100%;
+}
+
+.pc-predict-model-bottom-wrapper {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+
+    @media screen and (max-width: $small) {
+        width: 100%;
+    }
+}
+
+.pc-predict-model-row-modal {
+    @extend .row;
+    width: 100%;
+}
+
+.pc-predict-model-input-wrapper {
+    @extend .center;
+    width: 50%;
+    border: solid 2px #c4dbe0;
+    border-right: none;
+    font-size: 22px;
+    flex-direction: row;
+
+    input {
+        text-align: center;
+
+        border: solid 2px $accent;
+        border-radius: $defaultRadius;
+        line-height: 36px;
+        font-size: 30px;
+
+        display: inline-block;
+        width: 100%;
+        outline: transparent;
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 3px;
+        background-color: #e6e5e361;
+
+        &:focus {
+            background-color: bisque;
+            outline: none;
+        }
+    }
+
+    span.btc-value-prediction-span {
+        position: relative;
+
+        &::before {
+            content: "\0024";
+            color: black;
+            position: absolute;
+            top: 5px;
+            left: 1px;
+        }
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+
+    @media screen and (max-width: 450px) {
+        input[type="number"] {
+            // background-color: ${(props) => props.background};
+            color: white;
+            background: #ff6600;
+        }
+
+        width: 100%;
+        border: none;
+    }
+}
+
+.pc-predict-model-input-wrapper-bottom {
+    @extend .pc-predict-model-input-wrapper;
+    width: 232px;
+    border: none;
+    // border-right: solid 2px #c4dbe0;
+    font-size: 30px;
+    padding-bottom: 10px;
+
+    @media screen and (max-width: $small) {
+        border: none;
+        width: 130px;
+
+        input.bet-value-prediction-input {
+            width: 100% !important;
+            background-color: #ebf3f5;
+            color: black;
+            outline: transparent;
+        }
+    }
+}
+
+// pool container reward styles
+
+.pc-reward-main-div {
+    @extend .column;
+    height: 100%;
+    width: 50%;
+    color: white;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    background-color: $secondary;
+    border-radius: $defaultRadius;
+
+    @media screen and (max-width: $medium) {
+        width: 100%;
+    }
+
+    .stake-reward {
+        text-align: center;
+
+        p {
+            font-size: 20px;
+        }
+    }
+}
+
+.pc-reward-top {
+    @extend .row;
+    width: 100%;
+    border-radius: $defaultRadius;
+}
+
+.pc-reward-column-reward {
+    @extend .column;
+    font-family: Lato;
+    width: 100%;
+    align-items: center;
+    padding-top: 10px;
+
+    h2 {
+        font-size: 69px;
+        line-height: 69px;
+        font-weight: 100;
+        margin: 0;
+    }
+
+    ul {
+        padding: 0;
+        // width: 110px;
+    }
+
+    ul.reward-keys {
+        border-right: 2px solid $accent;
+        padding-right: 7px;
+
+        li {
+            text-align: right;
+        }
+    }
+
+    ul.reward-value {
+        * {
+            font-size: 12px !important;
+            line-height: 28px;
+        }
+
+        .reward-value-size {
+            font-size: 14px !important;
+        }
+    }
+
+    li {
+        list-style-type: none;
+        font-size: 19px;
+        text-align: left;
+        padding-left: 5px;
+    }
+
+    @media screen and (max-width: $small) {
+        li {
+            font-size: 12px;
+            padding-top: 5px;
+        }
+
+        p {
+            font-size: 12px;
+        }
+
+        h1 {
+            font-size: 90px;
+            line-height: 110px;
+        }
+
+        h2 {
+            font-size: 42px;
+            line-height: 45px;
+        }
+    }
+
+    &-title {
+        display: flex;
+        justify-self: center;
+        width: 100%;
+
+        ul {
+            margin: 5px auto;
+        }
+
+        ul:first-child li {
+            padding: 0 5px;
+            text-align: end;
+        }
+    }
+}
+
+.pc-reward-light-font {
+    font-weight: 300;
+
+    li {
+        border-right: 2px solid white;
+        padding-right: 5px;
+        text-align: right;
+    }
+
+    @media screen and (min-width: $large) {
+        li {
+            padding-right: 7px;
+        }
+    }
+}
+
+.pc-reward-bottom {
+    @extend .row;
+    width: 100%;
+    justify-content: space-around;
+
+    // background-color: ${(props) => props.background};
+    p,
+    h4 {
+        display: block;
+    }
+
+    p {
+        width: 40%;
+        font-size: 18px;
+        text-align: right;
+        font-weight: 300;
+    }
+
+    h4 {
+        font-weight: 300;
+        font-size: 26px;
+        margin: 0;
+        font-family: Lato;
+    }
+
+    @media screen and (max-width: $small) {
+        justify-content: flex-start;
+
+        p,
+        h4 {
+            text-align: right;
+        }
+
+        p {
+            font-size: 12px;
+            padding: 20px 10px;
+        }
+
+        h4 {
+            font-size: 16px;
+            padding: 20px 10px;
+        }
+
+        background-color: rgba(39, 46, 56, 0.4);
+    }
+
+    .MuiCircularProgress-root {
+        position: initial;
+    }
+}
+
+.pc-timer-main-div {
+    font-family: Lato;
+    height: 210px;
+    width: 40%;
+    min-width: 360px;
+    font-weight: 300;
+
+    @media screen and (max-width: $medium) {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 20px;
+        min-width: auto;
+
+        .tooltip {
+            margin-top: 20px;
+        }
+    }
+}
+
+.pc-timer-title {
+    font-size: 20px;
+    color: #ffffff;
+
+    @media screen and (max-width: $small) {
+        font-size: 15px;
+    }
+}
+
+.pc-timer-time-wrapper {
+    display: flex;
+    flex-direction: column;
+    font-size: 67px;
+    color: #ffffff;
+    margin-bottom: 10px;
+
+    @media screen and (max-width: 579px) {
+        font-size: 54px;
+    }
+
+    .pc-timer {
+        height: 82px;
+    }
+
+    .pc-timer-names-wrapper {
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        color: white;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        font-size: 12px;
+    }
+
+    .pc-timer-names-item {
+        max-width: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+        flex-grow: 2;
+        border: 1px solid #171a1f;
+        border-width: thin;
+    }
+
+    .MuiCircularProgress-root {
+        position: initial;
+    }
+}
+
+.transaction-confirmed-section {
+    text-align: center;
+    padding: 25px 30px;
+
+    p.alert {
+        font-size: 16px;
+    }
+
+    .pool-size-rejection-error {
+        background-color: #ec6069;
+        color: white;
+        font-size: 25px;
+        padding: 5px 0;
+        margin: -25px -30px 30px -30px;
+    }
+
+    .rejection-mode-helper-note {
+        background-color: bisque;
+        margin-top: 10px;
+
+        b {
+            color: red;
+        }
+
+        span {
+            font-size: 14px;
+        }
+    }
+
+    .reconfirm-transaction {
+        margin-top: 15px;
+        display: grid;
+        grid-gap: 10px 50px;
+        justify-self: center;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+
+        div {
+            cursor: pointer;
+            background-color: $secondary;
+            color: white;
+            height: 36px;
+            line-height: 36px;
+            font-size: 16px;
+            width: 120px;
+        }
+
+        .edit-bet {
+            justify-self: right;
+            opacity: 0.85;
+        }
+
+        .auto-confirm-bet {
+            justify-self: left;
+        }
+    }
+
+    .transaction-details {
+        .prediction-details-confirmation {
+            margin-bottom: -20px;
+            width: 100%;
+            padding: 10px 15px;
+            border-radius: 7px;
+            background-color: $secondary;
+            color: white;
+
+            hr {
+                margin: 5px -15px;
+            }
+        }
+
+        span {
+            white-space: break-spaces;
+        }
+
+        h3 {
+            margin-bottom: 0;
+        }
+
+        .special-text-2 {
+            color: white;
+            font-size: 18px;
+            opacity: 0.7;
+        }
+
+        .special-text {
+            color: $accent;
+            font-size: 18px;
+        }
+
+        .grayed-text {
+            color: grey;
+            font-size: 16px;
+        }
+    }
+
+    .transaction-confirmations {
+        margin: 10px 0 20px 0;
+    }
+
+    .transaction-completed-next {
+        background-color: $secondary;
+        color: #ebf3f5;
+        padding: 10px 15px;
+        border-radius: $defaultRadius;
+        border: none;
+        text-decoration: none;
+    }
+
+    .MuiCircularProgress-root {
+        position: initial;
+    }
+}
+
+.prediction-modal-phase-one {
+    $breakp: 600px;
+
+    display: flex;
+    padding: 1px 15px;
+    margin: -35px 25px;
+
+    @media screen and (max-width: $breakp) {
+        font-size: 13px;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        .prediction-modal-phase-one-staking {
+            margin-bottom: 5px !important;
+        }
+
+        .staking-prediction-part,
+        .staking-bet-part {
+            flex: 100 1;
+        }
+    }
+
+    .prediction-modal-phase-one-staking {
+        margin: 0 15px;
+        padding: 5px 5px 10px 5px;
+        border-radius: 7px;
+
+        .staking-prediction-part-header,
+        .staking-bet-part-header {
+            hr {
+                margin: 0 -5px 10px -5px;
+            }
+
+            h4 {
+                color: white;
+                margin: 0 0 0 0;
+                padding-bottom: 5px;
+            }
+        }
+    }
+
+    .staking-bet-part {
+        background-color: $secondary;
+        text-align: center;
+        flex: 50 1;
+
+        .staking-bet-part-input {
+            margin-bottom: 10px;
+
+            input {
+                height: 36px;
+                line-height: 18px;
+                font-size: 18px;
+                font-weight: 600;
+                text-align: center;
+                border: solid 2px transparent;
+                border-radius: 5px;
+                outline: none;
+                width: 70%;
+                min-width: 164px;
+
+                &:hover {
+                    border: solid 2px rgba($color: $accent, $alpha: 0.5);
+                    outline: none;
+                }
+
+                &:focus {
+                    border: solid 2px $accent;
+                    outline: none;
+                }
+            }
+        }
+
+        .staking-bet-part-percentage-chips {
+            text-align: center;
+            color: whitesmoke;
+            z-index: 100;
+            margin-bottom: 20px;
+
+            span {
+                cursor: pointer;
+                border-radius: 3px;
+                margin: 0 2px;
+                padding: 5px;
+                display: inline-block;
+                min-width: 51px;
+            }
+        }
+
+        .staking-bet-part-confirm {
+            button {
+                color: white;
+                outline: none;
+                border-radius: 5px;
+                border: none;
+                cursor: pointer;
+                background-color: rgba($color: $accent, $alpha: 0.8);
+                font-size: 16px;
+                font-weight: 300;
+                line-height: 16px;
+                padding: 10px 20px;
+            }
+        }
+    }
+
+    .staking-prediction-part {
+        background-color: $secondary;
+        text-align: center;
+        flex: 50 1;
+
+        .staking-prediction-part-header {
+            position: relative;
+
+            .tooltip {
+                position: absolute;
+                right: -3px;
+                top: -3px;
+                cursor: pointer;
+            }
+        }
+
+        .staking-prediction-part-prediction-and-range {
+            background-color: white;
+            margin: 29px 30px;
+
+            @media screen and (max-width: $breakp) {
+                font-size: 13px;
+                margin: 29px 0;
+            }
+
+            .staking-prediction-part-prediction-and-range-header {
+                display: flex;
+
+                >span {
+                    border: solid 2px #c4dbe0;
+                    flex: 50;
+                }
+            }
+
+            .staking-prediction-part-prediction-and-range-value {
+                display: flex;
+
+                >span {
+                    border-left: solid 2px #c4dbe0;
+                    border-right: solid 2px #c4dbe0;
+                    flex: 50;
+                    height: 36px;
+                    line-height: 18px;
+                    font-size: 18px;
+                    font-weight: 600;
+
+                    .currency-root {
+                        line-height: 36px;
+                    }
+                }
+
+                span.staking-prediction-part-prediction-and-range-input {
+                    position: relative;
+
+                    >input {
+                        border: solid 2px rgba($color: $accent, $alpha: 0.7);
+                        border-radius: 7px;
+                        width: 100%;
+                        text-align: center;
+                        outline: none;
+                        height: 36px;
+                        line-height: 18px;
+                        font-size: 18px;
+                        font-weight: 600;
+                        padding-left: 15px;
+
+                        &:hover {
+                            border: solid 2px rgba($color: $accent, $alpha: 0.5);
+                            outline: none;
+                        }
+
+                        &:focus {
+                            border: solid 2px $accent;
+                            outline: none;
+                        }
+                    }
+
+                    >b {
+                        position: absolute;
+                        top: 9px;
+                        height: 36px;
+                        line-height: 18px;
+                        font-size: 19px;
+                        font-weight: 400;
+                    }
+                }
+            }
+
+            .staking-prediction-part-prediction-and-range-explain {
+                display: flex;
+
+                >span {
+                    flex: 50;
+                    border: solid 2px #c4dbe0;
+                }
+            }
+        }
+    }
+}

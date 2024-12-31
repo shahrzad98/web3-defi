@@ -1,0 +1,42 @@
+.order-container {
+  background-color: whitesmoke;
+  border-radius: 5px;
+  width: 100%;
+  min-width: 368px;
+  box-shadow: 0 0 3px 1px white;
+}
+.order-header {
+  text-align: center;
+  height: 50px;
+  background-color: #f36f23;
+}
+
+.order-header p {
+  margin: 0;
+}
+
+.ReactModal__Content {
+  border-radius: 5px !important;
+}
+
+.container {
+  height: 40px;
+  position: relative;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.MuiSlider-thumb.Mui-disabled {
+  margin-top: 1px !important;
+  margin-left: -10px !important;
+}
+.MuiSwitch-colorSecondary.Mui-disabled + .MuiSwitch-track {
+  background-color: #bdbdbd !important;
+}

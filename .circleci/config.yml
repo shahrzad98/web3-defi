@@ -1,0 +1,25 @@
+
+version: 2.1
+orbs:
+  node: circleci/node@4.3.0
+  aws-cli: circleci/aws-cli@2.0.0
+  aws-ecr: circleci/aws-ecr@7.0.0
+  aws-ecs: circleci/aws-ecs@2.2.1
+workflows:
+  build_and_push_image:
+    jobs:
+      - aws-ecr/build-and-push-image:
+          executor: aws-cli/default
+          dockerfile: "Dockerfile"
+          path: .
+          repo: "totem-frontend"
+          skip-when-tags-exist: false
+          tag: "${CIRCLE_SHA1}"
+          setup-remote-docker: true
+      - aws-ecs/deploy-service-update:
+          requires:
+            - aws-ecr/build-and-push-image
+          family: "totem-frontend-service"
+          service-name: "totem-frontend"
+          cluster-name: "totemfi-staging"
+          container-image-name-updates: "container=totem-frontend-service,tag=${CIRCLE_SHA1}"

@@ -1,0 +1,99 @@
+version: 2.1
+
+jobs:
+  build:
+    executor:
+      name: node/default
+      tag: "12.16.0"
+    environment:
+      CI: false
+    steps:
+      - checkout
+      - setup_remote_docker:
+          version: 19.03.13
+
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+
+      - run: yarn install
+      - run:
+          name: Code Prettify
+          command: |
+            yarn prettify .
+
+      - run:
+          name: Build Image
+          command: docker build . -t totemfinance/totem-deploy
+      
+      - run:
+          name: Login to Docker Hub
+          command: echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
+
+      - run:
+          name: Push to Docker Hub
+          command: |
+            docker tag totemfinance/totem-deploy totemfinance/totem-deploy:$CIRCLE_SHA1
+            docker push totemfinance/totem-deploy:$CIRCLE_SHA1
+          if: startsWith(github.ref, 'refs/tags/v')
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+  deploy_staging:
+    docker:
+      - image: totemfinance/totem-deploy:$CIRCLE_SHA1
+        auth:
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_PASSWORD
+    environment:
+      APP_CONFIG: staging
+    steps:
+      - checkout
+      - setup_remote_docker:
+          version: 19.03.13
+      - run:
+          command: |
+            docker build
+            docker push
+
+  deploy_production:
+    docker:
+      - image: totemfinance/totem-deploy:$CIRCLE_SHA1
+        auth:
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_PASSWORD
+    environment:
+      APP_CONFIG: production
+    steps:
+      - checkout
+      - setup_remote_docker:
+          version: 19.03.13
+      - run:
+          command: |
+            docker build
+            docker push
+
+orbs:
+  node: circleci/node@4.3.0
+  aws-ecr: circleci/aws-ecr@7.0.0
+  aws-ecs: circleci/aws-ecs@2.2.1
+workflows:
+  build_test_deploy:
+    jobs:
+      - build
+      - deploy_staging:
+          requires:
+            - build
+          filters:
+            branches:
+              only: staging
+      - deploy_production:
+          requires:
+            - build
+          filters:
+            branches:
+              only: main

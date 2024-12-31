@@ -1,0 +1,25 @@
+{
+  "_comment_networks": {
+    "1": "mainnet",
+    "5": "goerli",
+    "3": "ropsten",
+    "4": "rinkeby",
+    "56": "bsc"
+  },
+  "_comment_rpc_urls": {
+    "1": "https://mainnet.infura.io/v3/84842078b09946638c03157f83405213",
+    "4": "https://rinkeby.infura.io/v3/84842078b09946638c03157f83405213"
+  },
+  "networks": {
+    "56": "bsc"
+  },
+  "rpc_urls": {
+    "56": "https://bsc-dataseed.binance.org/",
+    "1": "https://mainnet.infura.io/v3/84842078b09946638c03157f83405213",
+    "4": "https://rinkeby.infura.io/v3/84842078b09946638c03157f83405213"
+  },
+  "offchain": {
+    "priceEndPoint": "https://offchain.totemfi.com/totmprice"
+  },
+  "subgraph": "https://graph.totemfi.com/subgraphs/name/totemfi/staking-v1"
+}
